@@ -10,9 +10,12 @@ namespace MediaNoche.Models
         public int ID { get; set; }
         public int EveningClassID { get; set; }
         public DateTime Date { get; set; }
-        public ICollection<EveningClass> EveningClasses { get; set; }
-        public Active EveningManager { get; set; }
+        public string Concept { get; set; }
+        public ICollection<EveningLesson> EveningLessons { get; set; }
         public Active DJ { get; set; }
-        /*להוסיף בעלי תפקידים*/
+        public Active Announcer { get; set; }
+        public Active EveningManager { get; set; }
+        public Active EveningManagerAssistant { get; set; }
+        public Active IntroductoryRateGuide { get; set; }
     }
 }
