@@ -7,10 +7,13 @@ namespace MediaNoche.Models
 {
     public enum Role
     {
+        DJ,
+        Announcer,
         Guide,
+        GuideAssistant,
+        IntroductoryRateGuide,
         EveningManager,
-        DJ
-        /*תורן הקמה*/
+        EveningManagerAssistant
     }
 
     public class Active
