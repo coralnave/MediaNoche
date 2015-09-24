@@ -16,7 +16,7 @@ namespace MediaNoche
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ActiveController", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Active", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

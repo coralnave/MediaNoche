@@ -6,7 +6,7 @@ using System.Text;
 namespace MediaNoche.Models
 {
     public class Excersize
-    {
+    {//Name=,Video=,
         public int ID { get; set; }
         public string Name { get; set; }
         public string Video { get; set; }

@@ -27,6 +27,7 @@ namespace MediaNoche.DAL
         public DbSet<Excersize> Excersizes { get; set; }
         public DbSet<EveningClass> EveningClasses { get; set; }
         public DbSet<Evening> Evenings { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
