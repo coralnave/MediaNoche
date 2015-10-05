@@ -36,11 +36,11 @@ namespace MediaNoche.Migrations
                   Excersizes[0]
                   );
             //-------------------------------------------------------
-            EveningClass newEveningClasss = new EveningClass { ActiveID = 1, Level = 1, ClassNum = 1, Actives = Actives, Excersizes = Excersizes };
+            EveningLesson newEveninglesson = new EveningLesson { ActiveID = 1, Level = 1, ClassNum = 1, Actives = Actives, Excersizes = Excersizes };
 
-            context.EveningClasses.AddOrUpdate(
+            context.EveningLessons.AddOrUpdate(
                   p => p.ID,
-                  newEveningClasss
+                  newEveninglesson
             );
 
             //-------------------------------------------------------
