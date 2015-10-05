@@ -139,7 +139,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Active.cs" />
-    <Compile Include="Models\EveningClass.cs" />
+    <Compile Include="Models\EveningLesson.cs" />
     <Compile Include="Models\Lesson.cs" />
     <Compile Include="Models\Evening.cs" />
     <Compile Include="Models\Excersize.cs" />
