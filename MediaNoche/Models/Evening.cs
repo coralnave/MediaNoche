@@ -11,7 +11,7 @@ namespace MediaNoche.Models
         public int EveningClassID { get; set; }
         public DateTime Date { get; set; }
         public string Concept { get; set; }
-        public ICollection<EveningClass> EveningLessons { get; set; }
+        public ICollection<EveningLesson> EveningLessons { get; set; }
         public Active DJ { get; set; }
         public Active Announcer { get; set; }
         public Active EveningManager { get; set; }

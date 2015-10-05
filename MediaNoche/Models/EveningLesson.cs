@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MediaNoche.Models
 {
-    public class EveningClass
+    public class EveningLesson
     {//ActiveID=,Level=,ClassNum=,Actives,Excersizes
 
         public int ID { get; set; }
