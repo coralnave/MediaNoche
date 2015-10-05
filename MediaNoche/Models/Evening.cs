@@ -6,9 +6,9 @@ using System.Web;
 namespace MediaNoche.Models
 {
     public class Evening
-    {//EveningClassID=,Date,Concept,DJ,Announcer,EveningManager=,EveningManagerAssistant=,IntroductoryRateGuide=
+    {//EveningLessonID=,Date,Concept,DJ,Announcer,EveningManager=,EveningManagerAssistant=,IntroductoryRateGuide=
         public int ID { get; set; }
-        public int EveningClassID { get; set; }
+        public int EveningLessonID { get; set; }
         public DateTime Date { get; set; }
         public string Concept { get; set; }
         public ICollection<EveningLesson> EveningLessons { get; set; }
