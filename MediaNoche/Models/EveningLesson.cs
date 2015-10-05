@@ -5,15 +5,14 @@ using System.Web;
 
 namespace MediaNoche.Models
 {
-
     public class EveningClass
-    {
+    {//ActiveID=,Level=,ClassNum=,Actives,Excersizes
+
         public int ID { get; set; }
         public int ActiveID { get; set; }
         public int Level { get; set; }
         public int ClassNum { get; set; }
         public virtual ICollection<Active> Actives { get; set; }
         public List<Excersize> Excersizes { get; set; }
-
     }
 }
