@@ -36,7 +36,7 @@ namespace MediaNoche.Migrations
                   Excersizes[0]
                   );
             //-------------------------------------------------------
-            EveningLesson newEveninglesson = new EveningLesson { ActiveID = 1, Level = 1, ClassNum = 1, Actives = Actives, Excersizes = Excersizes };
+            EveningLesson newEveninglesson = new EveningLesson { ActiveID = 1, Level = 1, LessonNum = 1, Actives = Actives, Excersizes = Excersizes };
 
             context.EveningLessons.AddOrUpdate(
                   p => p.ID,
@@ -48,7 +48,7 @@ namespace MediaNoche.Migrations
                   p => p.ID,
                   new Evening
                   {
-                      EveningClassID = 1,
+                      EveningLessonID = 1,
                       Date = DateTime.Parse("2005-09-01"),
                       Concept = "ch ch ch",
                       DJ = Actives[0],
@@ -65,7 +65,7 @@ namespace MediaNoche.Migrations
                   new Lesson
                   {
                       Level=1,
-                      ClassNum=1,
+                      LessonNum=1,
                       Excersizes = Excersizes
                   }
             );
