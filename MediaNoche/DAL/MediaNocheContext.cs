@@ -1,24 +1,14 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
-
-//namespace MediaNoche.DAL
-//{
-//    public class MediaNocheContext
-//    {
-//    }
-//}
-
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MediaNoche.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MediaNoche.DAL
 {
-    public class MediaNocheContext : DbContext
+    public class MediaNocheContext : IdentityDbContext<ApplicationUser>
     {
 
+        
         public MediaNocheContext() : base("MediaNocheContext")
         {
         }
@@ -32,6 +22,10 @@ namespace MediaNoche.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
     }
 }

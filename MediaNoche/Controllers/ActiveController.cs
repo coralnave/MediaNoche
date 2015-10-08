@@ -11,6 +11,7 @@ using MediaNoche.DAL;
 
 namespace MediaNoche.Controllers
 {
+    [Authorize(Roles = "Admins")]
     public class ActiveController : Controller
     {
         private MediaNocheContext db = new MediaNocheContext();
@@ -47,10 +48,19 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,FirsName,LastName,Birthday,Availability,Picture,Summary")] Active active)
+        public ActionResult Create([Bind(Include = "ID,FirsName,LastName,Birthday,Availability,PictureFileHandler,Summary")] Active active)
         {
             if (ModelState.IsValid)
             {
+                if (active.PictureFileHandler != null)
+                {
+                    string pic = System.IO.Path.GetFileName(active.PictureFileHandler.FileName);
+                    string pathPic = System.IO.Path.Combine(
+                                           Server.MapPath("~/Upload"), pic);
+                    active.PictureFileHandler.SaveAs(pathPic);
+                    active.Picture = "../Upload/" + pic;
+                }
+
                 db.Actives.Add(active);
                 db.SaveChanges();
                 return RedirectToAction("Index");

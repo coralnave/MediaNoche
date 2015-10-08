@@ -1,40 +1,63 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+    <div class="page">
+        <div class="header">
+                <a href="index.html" id="logo"><img src="Images/logo.png" alt="logo"></a>
+                <div>
+                    <div>
+                        <a href="#">הרשמה</a> <span>|</span> <a href="#">התחברות</a>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="selected">@Html.ActionLink("מפעילים", "Index", "Active")</li>
+                            <li>@Html.ActionLink("ערבים", "Index", "Evening")</li>
+                            <li>@Html.ActionLink("שיעורי ערב", "Index", "EveningLesson")</li>
+                            <li>@Html.ActionLink("תרגילם", "Index", "Excersize")</li>
+                            <li>@Html.ActionLink("שיעורים", "Index", "Lesson")</li>
+                        </ul>
+                        <form action="index.html">
+                            <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter search query':this.value;" value="Enter search query">
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+            <div class="body">
+                <div class="home">
+                    <div class="section">
+                        <iframe src='http://www.israelweather.co.il/weather_out.asp?code_width=250&height=200&code_color=white&code_font_color=black' width=250 height=200 dir=rtl name='in_frame' frameborder='1' scrolling='No'></iframe>
+                        @RenderBody()
+                    </div>
+                </div>
+            <div class="footer">
+                <div>
+                    <div>
+                        <ul>
+                            <li class="selected">@Html.ActionLink("מפעילים", "Index", "Active")</li>
+                            <li>@Html.ActionLink("ערבים", "Index", "Evening")</li>
+                            <li>@Html.ActionLink("שיעורי ערב", "Index", "EveningLesson")</li>
+                        </ul>
+                        <p>
+                            &#169; Copyright &#169; 2023.Company name all rights reserved
+                        </p>
+                        <div class="connect">
+                            <a href="http://freewebsitetemplates.com/go/facebook/" id="fb">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a> <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a> <a href="http://freewebsitetemplates.com/go/youtube/" id="vimeo">vimeo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

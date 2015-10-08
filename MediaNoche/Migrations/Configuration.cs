@@ -1,21 +1,40 @@
 namespace MediaNoche.Migrations
 {
     using System;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using MediaNoche.Models;
     using System.Collections.Generic;
-
     internal sealed class Configuration : DbMigrationsConfiguration<MediaNoche.DAL.MediaNocheContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MediaNoche.DAL.MediaNocheContext context)
-        {
+        {   //-------------------------------------------------------
+            if (!context.Roles.Any(r => r.Name == "Admins"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Admins" };
+
+                manager.Create(role);
+            }
+            //-------------------------------------------------------
+            if (!context.Users.Any(u => u.UserName == "admin"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { UserName = "admin" };
+
+                manager.Create(user, "123456");
+                manager.AddToRole(user.Id, "Admins");
+            }
             //-------------------------------------------------------
             List<Active> Actives = new List<Active>{
                 new Active { FirsName = "Carson", LastName = "Alexander", Birthday = DateTime.Parse("2005-09-01"), Availability = true, Picture = "nop", Summary = "coral help" }
@@ -26,10 +45,13 @@ namespace MediaNoche.Migrations
                 Actives[0]
             );
 
+            //context.SaveChanges();
+
+
             //-------------------------------------------------------
             List<Excersize> Excersizes = new List<Excersize>{
-                new Excersize{Name="what what",Video="in the batt"}
-            };
+                 new Excersize{Name="what what",Video="in the batt"}
+             };
 
             context.Excersizes.AddOrUpdate(
                   p => p.ID,
@@ -55,21 +77,22 @@ namespace MediaNoche.Migrations
                       Announcer = Actives[0],
                       EveningManager = Actives[0],
                       EveningManagerAssistant = Actives[0],
-                      IntroductoryRateGuide = Actives[0],
+                      IntroductoryRateGuide = Actives[0]
                   }
             );
 
-            //-------------------------------------------------------
-             context.Lessons.AddOrUpdate(
-                  p => p.ID,
-                  new Lesson
-                  {
-                      Level=1,
-                      LessonNum=1,
-                      Excersizes = Excersizes
-                  }
-            );
-            
+           //-------------------------------------------------------
+            context.Lessons.AddOrUpdate(
+                 p => p.ID,
+                 new Lesson
+                 {
+                     Level = 1,
+                     LessonNum = 1,
+                     Excersizes = Excersizes
+                 }
+           );
+
         }
     }
 }
+
