@@ -82,14 +82,34 @@ namespace MediaNoche.Migrations
             );
 
            //-------------------------------------------------------
-            context.Lessons.AddOrUpdate(
+            context.News.AddOrUpdate(
                  p => p.ID,
-                 new Lesson
+                 new New
                  {
-                     Level = 1,
-                     LessonNum = 1,
-                     Excersizes = Excersizes
+                     Title = "חדשות האתר",
+                     ShortInfo = "באתר. רק היום ועד אחריאת הימים",
+                     UpdateForDate = DateTime.Parse("2015-10-15")
                  }
+           );
+           //-------------------------------------------------------
+           context.Lessons.AddOrUpdate(
+                   p => p.ID,
+                   new Lesson
+                   {
+                       Level = 1,
+                       LessonNum = 1,
+                       Excersizes = Excersizes
+                   }
+           );
+           //-------------------------------------------------------
+           context.Locations.AddOrUpdate(
+                   p => p.ID,
+                   new Location
+                   {
+                       Title = "סניף קלקליה",
+                       ShortInfo = "רומבה. צה צה וזריקת אבנים לרוחק",
+                       Addres = "קלקילה"
+                   }
            );
 
         }

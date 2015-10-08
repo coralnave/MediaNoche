@@ -13,6 +13,8 @@ namespace MediaNoche.DAL
         {
         }
 
+        public DbSet<New> News { get; set; }
+        public DbSet<Location> Locations { get; set; }
         public DbSet<Active> Actives { get; set; }
         public DbSet<Excersize> Excersizes { get; set; }
         public DbSet<EveningLesson> EveningLessons { get; set; }

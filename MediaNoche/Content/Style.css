@@ -2,22 +2,22 @@
 /*------------------------- Fonts ---------------------------*/
 @font-face {
 	font-family: 'ralewaythin';
-	src: url('../fonts/raleway-thin-webfont-webfont.eot');
-	src: url('../fonts/raleway-thin-webfont-webfont.eot?#iefix') format('embedded-opentype'),  url('../fonts/raleway-thin-webfont-webfont.woff') format('woff'),  url('../fonts/raleway-thin-webfont-webfont.ttf') format('truetype'),  url('../fonts/raleway-thin-webfont-webfont.svg#ralewaythin') format('svg');
+	src: url('../Content/fonts/raleway-thin-webfont-webfont.eot');
+	src: url('../Content/fonts/raleway-thin-webfont-webfont.eot?#iefix') format('embedded-opentype'),  url('../Content/fonts/raleway-thin-webfont-webfont.woff') format('woff'),  url('../Content/fonts/raleway-thin-webfont-webfont.ttf') format('truetype'),  url('../Content/fonts/raleway-thin-webfont-webfont.svg#ralewaythin') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'pt_serif_captionitalic';
-	src: url('../fonts/pt_serif-caption-web-italic-webfont-webfont.eot');
-	src: url('../fonts/pt_serif-caption-web-italic-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/pt_serif-caption-web-italic-webfont-webfont.woff') format('woff'), url('../fonts/pt_serif-caption-web-italic-webfont-webfont.ttf') format('truetype'), url('../fonts/pt_serif-caption-web-italic-webfont-webfont.svg#pt_serif_captionitalic') format('svg');
+	src: url('../Content/fonts/pt_serif-caption-web-italic-webfont-webfont.eot');
+	src: url('../Content/fonts/pt_serif-caption-web-italic-webfont-webfont.eot?#iefix') format('embedded-opentype'), url('../Content/fonts/pt_serif-caption-web-italic-webfont-webfont.woff') format('woff'), url('../Content/fonts/pt_serif-caption-web-italic-webfont-webfont.ttf') format('truetype'), url('../Content/fonts/pt_serif-caption-web-italic-webfont-webfont.svg#pt_serif_captionitalic') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: 'pt_serif_captionregular';
-	src: url('../fonts/pt_serif-caption-web-regular-webfont.eot');
-	src: url('../fonts/pt_serif-caption-web-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/pt_serif-caption-web-regular-webfont.woff') format('woff'), url('../fonts/pt_serif-caption-web-regular-webfont.ttf') format('truetype'), url('../fonts/pt_serif-caption-web-regular-webfont.svg#pt_serif_captionregular') format('svg');
+	src: url('../Content/fonts/pt_serif-caption-web-regular-webfont.eot');
+	src: url('../Content/fonts/pt_serif-caption-web-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../Content/fonts/pt_serif-caption-web-regular-webfont.woff') format('woff'), url('../Content/fonts/pt_serif-caption-web-regular-webfont.ttf') format('truetype'), url('../Content/fonts/pt_serif-caption-web-regular-webfont.svg#pt_serif_captionregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -371,197 +371,7 @@ a img {
 .body .home div ul li a.click-here:hover {
 	background:url(../Images/buttons.png) no-repeat 0 -160px;
 }
-.body .about div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:15px 0 24px;
-}
-.body .about-where div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:25px 0 26px;
-}
-.body .about-how div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:25px 0 24px;
-}
-.body .blog {
-	background:url(../Images/bg-mid.png) repeat-y scroll left top transparent;
-	padding:0 48px 0 0;
-}
-.body .blog ul {
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-.body .blog ul li {
-	margin:38px 0 0;
-	overflow:hidden;
-	padding:24px 0 0;
-}
-.body .blog ul li div:first-child {
-	background:url(../Images/bg-shadow3.png) no-repeat right bottom;
-	float:left;
-	height:auto;
-	padding:0 0 9px;
-	position:relative;
-	width:314px;
-}
-.body .blog ul li div:first-child a {
-	background:none;
-	display:block;
-	height:auto;
-	margin:0 0 0 38px;
-	width:276px;
-}
-.body .blog ul li div:first-child a:hover {
-	background:none;
-}
-.body .blog ul li div:first-child span {
-	background:url(../Images/clip-left.png) no-repeat scroll left top transparent;
-	display:block;
-	height:59px;
-	left:0;
-	position:absolute;
-	top:0;
-	width:65px;
-}
-.body .blog ul li div {
-	background:url(../Images/bg-shadow2.png) no-repeat right 42px;
-	float:right;
-	height:auto;
-	padding:0 0 16px 30px;
-	width:568px;
-}
-.body .blog ul li div div:first-child {
-	background:none #fff;
-	float:none;
-	height:42px;
-	padding:0;
-	width:568px;
-}
-.body .blog ul li div div h3 {
-	color:#0d314f;
-	float:left;
-	font-family: 'ralewaythin';
-	font-size:24px;
-	font-weight:400;
-	line-height:24px;
-	margin:8px 0 0 10px;
-}
-.body .blog ul li div div div {
-	background:none;
-	float:right;
-	height:auto;
-	padding:9px 20px 0 0;
-	width:auto;
-}
-.body .blog ul li div div div span:first-child {
-	background:none;
-	color:#9da3a8;
-	display:block;
-	font-family: 'ralewaythin';
-	font-size:12px;
-	height:auto;
-	line-height:24px;
-	position:static;
-	width:auto;
-}
-.body .blog ul li div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:13px 0 24px;
-}
-.body .blog ul li div p a {
-	background:none;
-	color:#A98B52;
-	display:inline;
-	text-decoration:none;
-}
-.body .blog ul li div a {
-	background:url(../Images/buttons.png) no-repeat -110px 0;
-	display:block;
-	height:30px;
-	text-indent:-99999px;
-	width:90px;
-}
-.body .blog ul li div a:hover {
-	background:url(../Images/buttons.png) no-repeat 0 -262px;
-}
-.body .blog ul.paging {
-	list-style:none;
-	margin:120px 0 0;
-	overflow:hidden;
-	padding:0 0 68px;
-	text-align:center;
-}
-.body .blog ul.paging li {
-	display:inline;
-	margin:0;
-	padding:0;
-}
-.body .blog ul.paging li a {
-	color:#979ea5;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
-	line-height:30px;
-	margin:0 3px;
-	text-decoration:none;
-}
-.body .blog ul.paging li a:hover {
-	color:#606971;
-}
-.body .contact {
-	background:url(../Images/bg-mid.png) repeat-y scroll left top transparent;
-	min-height:1255px;
-	overflow:hidden;
-	padding:0;
-}
-.body .contact div {
-	float:right;
-	padding:0 36px 0 0;
-	width:580px;
-}
-.body .contact h2 {
-	background:url(../Images/border.png) repeat-x scroll left bottom transparent;
-	color:#84909C;
-	display:inline-block;
-	float:left;
-	font-family: 'ralewaythin';
-	font-size:30px;
-	font-weight:400;
-	line-height:48px;
-	margin:32px 98px 0 74px;
-	padding:0 20px 0 0;
-	text-decoration:none;
-	text-shadow:0 1px 0 #FDFBFB;
-}
-.body .contact div h3 {
-	color:#416277;
-	font-size:14px;
-	font-style:italic;
-	line-height:24px;
-}
-.body .contact div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:15px 0 24px;
-	padding:0 15px 0 0;
-	text-align:justify;
-}
-.body .contact div p a {
-	color:#416277!important;
-	text-decoration:underline!important;
-}
-.body .contact div p a:hover {
-	color:#42a3e4!important;
-}
+
 .body .home div.featured div div p a:hover, .body .home div.section div:first-child p a:hover, .body .home div.section div ul li a:hover, .body .home div ul li h3 a:hover, .body .home div ul li p a:hover, .body .about div p a:hover, .body .about-where div p a:hover, .body .about-how div p a:hover, .body .blog ul li div p a:hover, .body .contact div p a:hover {
 	text-decoration:underline;
 }
@@ -575,64 +385,7 @@ a img {
 	filter:alpha(opacity=80);/* Needed for IE8 and old versions */
 	opacity:0.8;
 }
-.body .about, .body .about-where, .body .about-how {
-	background:url(../Images/bg-mid.png) repeat-y left top;
-	min-height:1255px;
-	overflow:hidden;
-	padding:0;
-}
-.body .about ul, .body .about-where ul, .body .about-how ul {
-	float:left;
-	list-style:none;
-	margin:32px 54px 0 74px;
-	padding:0;
-	width:216px;
-}
-.body .about ul li, .body .about-where ul li, .body .about-how ul li {
-	background:url(../Images/border.png) repeat-x left bottom;
-}
-.body .about ul li.selected a, .body .about-where ul li.selected a, .body .about-how ul li.selected a {
-	background:url(../Images/arrow-right2.png) no-repeat right center;
-}
-.body .about ul li a, .body .about-where ul li a, .body .about-how ul li a {
-	color:#84909c;
-	display:block;
-	font-family: 'ralewaythin';
-	font-size:30px;
-	line-height:48px;
-	margin:12px 0 6px;
-	text-decoration:none;
-	text-shadow:0 1px 0 #fdfbfb;
-}
-.body .about div, .body .about-where div, .body .about-how div {
-	float:left;
-	padding:0 36px 0 0;
-	width:580px;
-}
-.body .about div div, .body .about-where div div, .body .about-how div div, .body .contact div div {
-	background:url(../Images/bg-shadow2.png) no-repeat 7px bottom;
-	display:block;
-	float:none;
-	position:relative;
-	width:inherit;
-}
-.body .about div div span, .body .about-where div div span, .body .about-how div div span, .body .contact div div span {
-	background:url(../Images/clip-right.png) no-repeat right top;
-	display:block;
-	height:59px;
-	position:absolute;
-	right:0;
-	top:0;
-	width:65px;
-}
-.body .about div div img, .body .about-where div div img, .body .about-how div div img, .body .blog ul li div:first-child a img, .body .contact div div img {
-	border:12px solid #F9F9F9;
-	display:block;
-}
-.body .about div p a, .body .about-where div p a, .body .about-how div p a, .body .contact div p a {
-	color:#a98b52;
-	text-decoration:none;
-}
+
 /*------------------------- Footer -------------------------*/
 .footer {
 	background:url(../Images/bg-mid.png) repeat-y left top;
