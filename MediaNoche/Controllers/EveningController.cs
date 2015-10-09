@@ -20,6 +20,10 @@ namespace MediaNoche.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (User.IsInRole("Admins"))
+            {
+                ViewBag.Name = "ok";
+            }
             return View(db.Evenings.ToList());
         }
 

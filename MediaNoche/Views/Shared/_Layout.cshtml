@@ -14,7 +14,10 @@
                 <a href="index.html" id="logo"><img src="Images/logo.png" alt="logo" style="width:146px;height:146px;"></a>
                 <div>
                     <div>
-                        <a href="#">הרשמה</a> <span>|</span> <a href="#">התחברות</a>
+                        <a >
+                        @Html.ActionLink("התחברות", "Login", "Account")</a>
+                         <span>|</span> <a>
+                        @Html.ActionLink("הרשמה", "Register", "Account")</a>
                     </div>
                     <div>
                         <ul>
@@ -40,9 +43,9 @@
                 <div>
                     <div>
                         <ul>
-                            <li class="selected">@Html.ActionLink("מפעילים", "Index", "Active")</li>
-                            <li>@Html.ActionLink("ערבים", "Index", "Evening")</li>
-                            <li>@Html.ActionLink("שיעורי ערב", "Index", "EveningLesson")</li>
+                            <li class="selected">@Html.ActionLink("אודות", "Index", "Active")</li>
+                            <li>@Html.ActionLink("צור קשר", "Index", "Evening")</li>
+                            <li>@Html.ActionLink("קישורים מעניינים", "Index", "EveningLesson")</li>
                         </ul>
                         <p>
                             &#169; Copyright &#169; 2023.Company name all rights reserved

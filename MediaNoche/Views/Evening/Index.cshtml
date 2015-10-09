@@ -35,11 +35,23 @@
             @Html.DisplayFor(modelItem => item.Concept)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("פרטים", "Details", new { id = item.ID })
+            <div id="Extra" style="display:inline-block">
+                |
+                @Html.ActionLink("עריכה", "Edit", new { id = item.ID })|
+                @Html.ActionLink("מחק", "Delete", new { id = item.ID })
+            </div>
+       
         </td>
     </tr>
 }
-
 </table>
+
+<script type="text/javascript">
+    if ('@ViewBag.Name' == 'ok') {
+        document.getElementById('Extra').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('Extra').style.visibility = "hidden";
+    }
+</script>
