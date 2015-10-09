@@ -7,11 +7,10 @@ using System.Web;
 
 namespace MediaNoche.Models
 {
-    public class New
+    public class Report 
     {
         public int ID { get; set; }
 
-        [StringLength(20, ErrorMessage = "First name cannot be longer than 20 characters.")]
         [DisplayName("כותרת:")]
         [Required]
         public string Title { get; set; }

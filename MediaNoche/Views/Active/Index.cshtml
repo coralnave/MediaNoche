@@ -1,63 +1,43 @@
 ﻿@model IEnumerable<MediaNoche.Models.Active>
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="Active">
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>Index</h2>
+    <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirsName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Birthday)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Availability)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Picture)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Summary)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirsName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Availability)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Picture)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Summary)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    <ul>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <li>
+                <div>
+                    <a href="#"><img src=@Html.DisplayFor(modelItem => item.Picture) alt="" style="width:267px;height:267px;"></a> <span></span>
+                </div>
+                <div>
+                    <div>
+                        <h3>@Html.DisplayFor(modelItem => item.FirsName) @Html.DisplayFor(modelItem => item.LastName)</h3>
+                        <div>
+                            <span>
+                                @Html.DisplayNameFor(model => model.Birthday): @Html.DisplayFor(modelItem => item.Birthday)
+                                @Html.DisplayNameFor(model => model.Availability): @Html.DisplayFor(modelItem => item.Availability)
+                            </span>
+                        </div>
+                    </div>
+                    <p>
+                        @Html.DisplayNameFor(model => model.Summary)
+                    </p>
+                    <a>@Html.ActionLink("ערוך", "Edit", new { id = item.ID }) |</a>
+                    <a> @Html.ActionLink("פרטים", "Details", new { id = item.ID }) |</a>
+                    <a>@Html.ActionLink("מחק", "Delete", new { id = item.ID })</a>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+

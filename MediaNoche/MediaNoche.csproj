@@ -168,6 +168,8 @@
     <Compile Include="Controllers\EveningLessonController.cs" />
     <Compile Include="Controllers\ExcersizeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="DAL\MediaNocheContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +203,14 @@
     <Compile Include="Migrations\201510081439365_fix222.Designer.cs">
       <DependentUpon>201510081439365_fix222.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510081532102_fix2313.cs" />
+    <Compile Include="Migrations\201510081532102_fix2313.Designer.cs">
+      <DependentUpon>201510081532102_fix2313.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510091122082_chaneNewToReport.cs" />
+    <Compile Include="Migrations\201510091122082_chaneNewToReport.Designer.cs">
+      <DependentUpon>201510091122082_chaneNewToReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Active.cs" />
@@ -210,7 +220,7 @@
     <Compile Include="Models\Evening.cs" />
     <Compile Include="Models\Excersize.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\New.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -330,6 +340,16 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Admin\AddStudent.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
+    <Content Include="Views\Report\Create.cshtml" />
+    <Content Include="Views\Report\Delete.cshtml" />
+    <Content Include="Views\Report\Details.cshtml" />
+    <Content Include="Views\Report\Edit.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\themes\" />
@@ -359,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510081439365_fix222.resx">
       <DependentUpon>201510081439365_fix222.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510081532102_fix2313.resx">
+      <DependentUpon>201510081532102_fix2313.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510091122082_chaneNewToReport.resx">
+      <DependentUpon>201510091122082_chaneNewToReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

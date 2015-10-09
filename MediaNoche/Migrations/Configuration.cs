@@ -82,9 +82,9 @@ namespace MediaNoche.Migrations
             );
 
            //-------------------------------------------------------
-            context.News.AddOrUpdate(
+            context.Reports.AddOrUpdate(
                  p => p.ID,
-                 new New
+                 new Report
                  {
                      Title = "חדשות האתר",
                      ShortInfo = "באתר. רק היום ועד אחריאת הימים",

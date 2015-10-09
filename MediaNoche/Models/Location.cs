@@ -11,7 +11,6 @@ namespace MediaNoche.Models
     {
         public int ID { get; set; }
 
-        [StringLength(20, ErrorMessage = "First name cannot be longer than 20 characters.")]
         [DisplayName("שם המקום")]
         [Required]
         public string Title { get; set; }

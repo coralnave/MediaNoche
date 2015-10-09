@@ -41,6 +41,94 @@ a img {
 	padding:0 0 14px 0;
 }
 /*------------------------- Header -------------------------*/
+.body .Active {
+	background:url(../Images/bg-mid.png) repeat-y scroll left top transparent;
+	padding:0 48px 0 0;
+}
+.body .Active ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.body .Active ul li {
+	margin:38px 0 0;
+	overflow:hidden;
+	padding:24px 0 0;
+}
+.body .Active ul li div:first-child {
+	background:url(../Images/bg-shadow3.png) no-repeat right bottom;
+	float:left;
+	height:auto;
+	padding:0 0 9px;
+	position:relative;
+	width:314px;
+}
+.body .Active ul li div:first-child a {
+	background:none;
+	display:block;
+	height:auto;
+	margin:0 0 0 38px;
+	width:276px;
+}
+.body .Active ul li div:first-child a:hover {
+	background:none;
+}
+.body .Active ul li div:first-child span {
+	background:url(../Images/clip-left.png) no-repeat scroll left top transparent;
+	display:block;
+	height:59px;
+	left:0;
+	position:absolute;
+	top:0;
+	width:65px;
+}
+.body .Active ul li div {
+	background:url(../Images/bg-shadow2.png) no-repeat right 42px;
+	float:right;
+	height:auto;
+	padding:0 0 16px 30px;
+	width:568px;
+}
+.body .Active ul li div div:first-child {
+	background:none #fff;
+	float:none;
+	height:42px;
+	padding:0;
+	width:568px;
+}
+.body .Active ul li div div h3 {
+	color:#0d314f;
+	float:left;
+	font-family: 'ralewaythin';
+	font-size:24px;
+	font-weight:400;
+	line-height:24px;
+	margin:8px 0 0 10px;
+}
+.body .Active ul li div div div {
+	background:none;
+	float:right;
+	height:auto;
+	padding:9px 20px 0 0;
+	width:auto;
+}
+.body .Active ul li div div div span:first-child {
+	background:none;
+	color:#9da3a8;
+	display:block;
+	font-family: 'ralewaythin';
+	font-size:12px;
+	height:auto;
+	line-height:24px;
+	position:static;
+	width:auto;
+}
+.body .Active ul li div p {
+	color:#416277;
+	font-size:12px;
+	line-height:24px;
+	margin:13px 0 24px;
+}
 .header {
 	height:131px;
 	overflow:hidden;
@@ -172,64 +260,6 @@ a img {
 .body .home {
 	background:url(../Images/bg-mid.png) repeat-y left top;
 	overflow:hidden;
-}
-.body .home div.featured {
-	background:url(../Images/bg-shadow2.png) no-repeat center bottom;
-	height:378px;
-	margin:0;
-	overflow:hidden;
-	padding:0 0 16px;
-	position:relative;
-}
-.body .home div.featured div {
-	background:url(../Images/clip-right.png) no-repeat right top;
-	margin:0;
-	position:relative;
-	z-index:1000;
-}
-.body .home div.featured div div {
-	background:url(../Images/clip-left.png) no-repeat left top;
-	height:378px;
-	margin:0;
-}
-.body .home div.featured img {
-	border:12px solid #f9f9f9;
-	left:38px;
-	position:absolute;
-}
-.body .home div.featured div div p {
-	color:#416277;
-	font-size:12px;
-	left:98px;
-	line-height:24px;
-	margin:0;
-	position:absolute;
-	top:175px;
-	width:415px;
-}
-.body .home div.featured div div p a {
-	background:none;
-	color:#a98b52;
-	display:inline;
-	height:auto;
-	margin:0;
-	padding:0;
-	position:static;
-	text-decoration:none;
-	width:auto;
-}
-.body .home div.featured div div a {
-	background:url(../Images/buttons.png) no-repeat 0 -71px;
-	display:block;
-	height:61px;
-	left:180px;
-	position:relative;
-	text-indent:-9999px;
-	top:270px;
-	width:186px;
-}
-.body .home div.featured div div a:hover {
-	background:url(../Images/buttons.png) no-repeat 0 -199px;
 }
 .body .home div.section {
 	background:url(../Images/border.png) repeat-x left bottom;
