@@ -11,17 +11,20 @@ using MediaNoche.DAL;
 
 namespace MediaNoche.Controllers
 {
+    [Authorize]
     public class LessonController : Controller
     {
         private MediaNocheContext db = new MediaNocheContext();
 
         // GET: /Lesson/
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Lessons.ToList());
         }
 
         // GET: /Lesson/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Lesson/Create
+        [Authorize(Roles = "Admins")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +51,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Create([Bind(Include="ID,Level,LessonNum")] Lesson lesson)
         {
             if (ModelState.IsValid)
@@ -60,6 +65,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Lesson/Edit/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +85,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit([Bind(Include="ID,Level,LessonNum")] Lesson lesson)
         {
             if (ModelState.IsValid)
@@ -91,6 +98,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Lesson/Delete/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +116,7 @@ namespace MediaNoche.Controllers
         // POST: /Lesson/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult DeleteConfirmed(int id)
         {
             Lesson lesson = db.Lessons.Find(id);

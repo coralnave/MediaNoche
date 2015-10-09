@@ -10,17 +10,20 @@ using System.Web.Mvc;
 
 namespace MediaNoche.Controllers
 {
+    [Authorize]
     public class LocationController : Controller
     {
         private MediaNocheContext db = new MediaNocheContext();
 
         // GET: /Location/
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Locations.ToList());
         }
 
         // GET: /Location/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +39,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Location/Create
+        [Authorize(Roles = "Admins")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +50,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Create([Bind(Include = "ID,Title,ShortInfo,Addres")] Location location)
         {
             if (ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Location/Edit/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +84,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit([Bind(Include = "ID,Title,ShortInfo,Addres")] Location location)
         {
             if (ModelState.IsValid)
@@ -90,6 +97,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Location/Delete/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +115,7 @@ namespace MediaNoche.Controllers
         // POST: /Location/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult DeleteConfirmed(int id)
         {
             Location location = db.Locations.Find(id);

@@ -11,17 +11,20 @@ using MediaNoche.DAL;
 
 namespace MediaNoche.Controllers
 {
+    [Authorize]
     public class EveningController : Controller
     {
         private MediaNocheContext db = new MediaNocheContext();
 
         // GET: /Evening/
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Evenings.ToList());
         }
 
         // GET: /Evening/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +40,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Evening/Create
+        [Authorize(Roles = "Admins")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +51,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Create([Bind(Include="ID,EveningLessonID,Date,Concept")] Evening evening)
         {
             if (ModelState.IsValid)
@@ -60,6 +65,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Evening/Edit/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,6 +85,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit([Bind(Include="ID,EveningLessonID,Date,Concept")] Evening evening)
         {
             if (ModelState.IsValid)
@@ -91,6 +98,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Evening/Delete/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,6 +116,7 @@ namespace MediaNoche.Controllers
         // POST: /Evening/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult DeleteConfirmed(int id)
         {
             Evening evening = db.Evenings.Find(id);

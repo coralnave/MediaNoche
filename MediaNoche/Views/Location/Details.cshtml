@@ -39,3 +39,34 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<div id="map" style="height: 400px; width: 550px;vertical-align:central;"></div>
+<script>
+
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: { lat: 31.466114  , lng: 34.484749 }
+        });
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map);
+    }
+
+    function geocodeAddress(geocoder, resultsMap) {
+        var address = '@Html.DisplayFor(model => model.Addres)';
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('לא נמצא הכתובת: ' + status);
+            }
+        });
+    }
+
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQ5IULUiy8lwGACkjvCYYuF1HCUOFBACw&signed_in=true&callback=initMap"></script>

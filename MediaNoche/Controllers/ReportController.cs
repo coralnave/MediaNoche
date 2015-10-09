@@ -10,17 +10,20 @@ using System.Web.Mvc;
 
 namespace MediaNoche.Controllers
 {
+    [Authorize]
     public class ReportController : Controller
     {
         private MediaNocheContext db = new MediaNocheContext();
     
         // GET: /Report/
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Reports.ToList());
         }
 
         // GET: /Report/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +39,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Report/Create
+        [Authorize(Roles = "Admins")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +50,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Create([Bind(Include = "ID,Title,ShortInfo,UpdateForDate")] Report report)
         {
             if (ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Report/Edit/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +84,7 @@ namespace MediaNoche.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult Edit([Bind(Include = "ID,Title,ShortInfo,UpdateForDate")] Report report)
         {
             if (ModelState.IsValid)
@@ -90,6 +97,7 @@ namespace MediaNoche.Controllers
         }
 
         // GET: /Report/Delete/5
+        [Authorize(Roles = "Admins")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +115,7 @@ namespace MediaNoche.Controllers
         // POST: /Report/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admins")]
         public ActionResult DeleteConfirmed(int id)
         {
             Report report = db.Reports.Find(id);
