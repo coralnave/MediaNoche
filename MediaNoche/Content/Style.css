@@ -257,23 +257,23 @@ a img {
 	background:url(../Images/bg-top.png) no-repeat left top;
 	padding:19px 0 0;
 }
-.body .home {
+.body .default {
 	background:url(../Images/bg-mid.png) repeat-y left top;
 	overflow:hidden;
 }
-.body .home div.section {
+.body .default div.section {
 	background:url(../Images/border.png) repeat-x left bottom;
 	margin:0 47px;
 	overflow:hidden;
 	padding:0 0 23px;
 }
-.body .home div.section div:first-child {
+.body .default div.section div:first-child {
 	background:none;
 	float:left;
 	margin:0 36px 0 0;
 	width:576px;
 }
-.body .home div.section div:first-child h4 {
+.body .default div.section div:first-child h2 {
 	color:#bac3cb;
 	font-family: 'pt_serif_captionitalic';
 	font-size:30px;
@@ -281,140 +281,119 @@ a img {
 	margin:17px 0 0;
 	text-shadow:0 1px 0 #fdfbfb;
 }
-.body .home div.section div:first-child p {
-	color:#848a8f;
-	font-size:12px;
-	line-height:24px;
-	margin:10px 0 0;
-}
-.body .home div.section div:first-child p a {
-	color:#A98B52;
-	display:inline;
-	text-decoration:none;
-}
-.body .home div.section div:first-child ul {
-	background-color:#d1d6db;
-	list-style:none;
-	margin:17px 0 0;
-	overflow:hidden;
-	padding:7px 16px 12px;
-}
-.body .home div.section div:first-child ul li {
-	float:left;
-	margin:0 0 0 36px;
-	width:156px;
-}
-.body .home div.section div:first-child ul ul {
-	margin:0;
-	padding:0;
-}
-.body .home div.section div:first-child ul li li:first-child {
-	padding:0 0 4px 18px;
-}
-.body .home div.section div:first-child ul li li {
-	background:url(../Images/arrow-right.jpg) no-repeat left 9px;
-	border-bottom:1px solid #c0c8cf;
-	display:inline-block;
-	margin:18px 0 0;
-	padding:0 0 5px 18px;
-	width:156px;
-}
-.body .home div.section div:first-child ul li a {
-	background:none;
-	color:#3b536c;
-	font-size:12px;
-	line-height:24px;
-	margin:0;
-	padding:0;
-	text-decoration:none;
-}
-.body .home div.section div:first-child ul li a:hover {
-	text-decoration:none!important;
-	color:#fff;
-}
-.body .home div.section div {
+
+.body .default div.section div {
 	background:url(../Images/bg-shadow3.png) no-repeat right bottom;
 	float:left;
 	margin:0;
 	padding:0 0 9px;
 	width:auto;
 }
-.body .home div.section div a {
-	display:block;
-	margin:8px 0 0;
-}
-.body .home div {
+.body .default div {
+    color:#3b536c;
 	background:none;
 	margin:28px 47px 0;
 	padding:0 0 36px;
 }
-.body .home div ul {
-	background:none #d1d6db;
+
+
+
+.body .active {
+	background:url(../images/bg-mid.png) repeat-y scroll left top transparent;
+	padding:0 48px 0 0;
+}
+.body .active ul {
 	list-style:none;
 	margin:0;
+	padding:0;
+}
+.body .active ul li {
+	margin:38px 0 0;
 	overflow:hidden;
-	padding:18px 18px 8px;
+	padding:24px 0 0;
 }
-.body .home div ul li {
+.body .active ul li div:first-child {
+	background:url(../images/bg-shadow3.png) no-repeat right bottom;
 	float:left;
-	margin:0 0 0 37px;
-	width:252px;
-}
-.body .home div ul li h3 {
-	background:url(../Images/bg-title.jpg) no-repeat;
-	height:24px;
-	margin:0 auto 18px;
-	text-align:center;
-	width:239px;
-	color:#2c88c4;
-	display:block;
-	font-family: 'pt_serif_captionitalic';
-	font-size:12px;
-	font-weight:400;
-	line-height:26px;
-}
-.body .home div ul li a {
-	background:url(../Images/bg-shadow3.png) no-repeat left bottom;
-	display:block;
+	height:auto;
 	padding:0 0 9px;
+	position:relative;
+	width:314px;
 }
-.body .home div ul li p {
-	color:#848A8F;
-	font-size:11px;
+.body .active ul li div:first-child a {
+	background:none;
+	display:block;
+	height:auto;
+	margin:0 0 0 38px;
+	width:276px;
+}
+.body .active ul li div:first-child a:hover {
+	background:none;
+}
+.body .active ul li div:first-child span {
+	background:url(../images/clip-left.png) no-repeat scroll left top transparent;
+	display:block;
+	height:59px;
+	left:0;
+	position:absolute;
+	top:0;
+	width:65px;
+}
+.body .active ul li div {
+	background:url(../images/bg-shadow2.png) no-repeat right 42px;
+	float:right;
+	height:auto;
+	padding:0 0 16px 30px;
+	width:568px;
+}
+.body .active ul li div div:first-child {
+	background:none #fff;
+	float:none;
+	height:42px;
+	padding:0;
+	width:568px;
+}
+.body .active ul li div div h3 {
+	color:#0d314f;
+	float:left;
+	font-family: 'ralewaythin';
+	font-size:24px;
+	font-weight:400;
 	line-height:24px;
-	margin:5px 0 16px;
+	margin:8px 0 0 10px;
 }
-.body .home div ul li p a {
+.body .active ul li div div div {
+	background:none;
+	float:right;
+	height:auto;
+	padding:9px 20px 0 0;
+	width:auto;
+}
+.body .active ul li div div div span:first-child {
+	background:none;
+	color:#9da3a8;
+	display:block;
+	font-family: 'ralewaythin';
+	font-size:12px;
+	height:auto;
+	line-height:24px;
+	position:static;
+	width:auto;
+}
+.body .active ul li div p {
+	color:#416277;
+	font-size:12px;
+	line-height:24px;
+	margin:13px 0 24px;
+}
+.body .active ul li div p a {
 	background:none;
 	color:#A98B52;
 	display:inline;
-	padding:0;
 	text-decoration:none;
 }
-.body .home div ul li a.click-here {
-	background:url(../Images/buttons.png) no-repeat -55px -32px;
-	height:37px;
-	margin:0 auto 9px;
-	padding:0;
-	width:145px;
-}
-.body .home div ul li a.click-here:hover {
-	background:url(../Images/buttons.png) no-repeat 0 -160px;
-}
 
-.body .home div.featured div div p a:hover, .body .home div.section div:first-child p a:hover, .body .home div.section div ul li a:hover, .body .home div ul li h3 a:hover, .body .home div ul li p a:hover, .body .about div p a:hover, .body .about-where div p a:hover, .body .about-how div p a:hover, .body .blog ul li div p a:hover, .body .contact div p a:hover {
-	text-decoration:underline;
-}
-.body .home div.section div:first-child ul li:first-child, .body .home div ul li:first-child, .body .about ul li:first-child a, .body .about-where ul li:first-child a, .body .about-how ul li:first-child a, .body .blog ul li:first-child {
-	margin:0;
-}
-.body .home div.section div a img, .body .home div ul li a img {
-	border:12px solid #F9F9F9;
-}
-.body .home div.section div a img:hover, .body .home div ul li a img:hover, .body .blog ul li div:first-child a img:hover {
-	filter:alpha(opacity=80);/* Needed for IE8 and old versions */
-	opacity:0.8;
-}
+
 
 /*------------------------- Footer -------------------------*/
 .footer {
