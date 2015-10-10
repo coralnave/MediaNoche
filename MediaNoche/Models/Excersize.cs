@@ -21,6 +21,7 @@ namespace MediaNoche.Models
         [DisplayName("סרטון:")]
         public HttpPostedFileBase videoFileHandler { get; set; }
 
+        [DisplayName("סרטון:")]
         public string Video { get; set; }
     }
 }

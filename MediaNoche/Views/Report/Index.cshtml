@@ -5,41 +5,46 @@
 }
 
 <h2>Index</h2>
+<div class="Extra"  style="display:inline-block">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateForDate)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ShortInfo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdateForDate)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdateForDate)
+                </td>
+                <td>
+                    @Html.ActionLink("פרטים", "Details", new { id = item.ID })
+                    <div class="Extra" style="display:inline-block">
+                        |
+                        @Html.ActionLink("ערוך", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("מחק", "Delete", new { id = item.ID })
+                    </div>
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortInfo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateForDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>

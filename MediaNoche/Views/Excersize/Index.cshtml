@@ -5,10 +5,11 @@
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="Extra"  style="display:inline-block">
+    <p>
+        @Html.ActionLink("הוסף תרגיל", "Create")
+    </p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -27,13 +28,16 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Video)
-        </td>
+            </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("פרטים", "Details", new { id = item.ID })
+            <div class="Extra"  style="display:inline-block"> </div>|
+            @Html.ActionLink("ערוך", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("מחק", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
 
 </table>
+
+

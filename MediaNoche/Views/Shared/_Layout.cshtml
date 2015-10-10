@@ -8,51 +8,50 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="page">
+<body lang="he" >
+    <div class="page" dir="rtl">
         <div class="header">
-                <a href="index.html" id="logo"><img src="Images/logo.png" alt="logo" style="width:146px;height:146px;"></a>
+            <a href="index.html" id="logo"><img src="Images/logo.png" alt="logo" style="width:146px;height:146px;"></a>
+            <div>
                 <div>
-                    <div>
-                        <a >
-                        @Html.ActionLink("התחברות", "Login", "Account")</a>
-                         <span>|</span> <a>
-                        @Html.ActionLink("הרשמה", "Register", "Account")</a>
-                    </div>
-                    <div>
-                        <ul>
-                            <li class="selected">@Html.ActionLink("מפעילים", "Index", "Active")</li>
-                            <li>@Html.ActionLink("ערבים", "Index", "Evening")</li>
-                            <li>@Html.ActionLink("שיעורי ערב", "Index", "EveningLesson")</li>
-                            <li>@Html.ActionLink("תרגילם", "Index", "Excersize")</li>
-                            <li>@Html.ActionLink("שיעורים", "Index", "Lesson")</li>
-                        </ul>
-                        <form action="index.html">
-                            <input type="text" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'Enter search query':this.value;" value="Enter search query">
-                            <input type="submit" value="">
-                        </form>
-                    </div>
+                    <a>
+                        @Html.ActionLink("התחברות", "Login", "Account")
+                    </a>
+                    <span>|</span> <a>
+                        @Html.ActionLink("הרשמה", "Register", "Account")
+                    </a>
+                </div>
+                <div>
+                    <ul>
+                        <li class="selected">@Html.ActionLink("מפעילים", "Index", "Active")</li>
+                        <li>@Html.ActionLink("ערבים", "Index", "Evening")</li>
+                        <li>@Html.ActionLink("שיעורי ערב", "Index", "EveningLesson")</li>
+                        <li>@Html.ActionLink("תרגילם", "Index", "Excersize")</li>
+                        <li>@Html.ActionLink("שיעורים", "Index", "Lesson")</li>
+                    </ul>
+                    <form action="index.html">
+                        <input type="text" onclick="this.value='';"
+                                onfocus="this.select()" 
+                               onblur="this.value=!this.value?'חפש':this.value;" 
+                               value="Enter search query">
+                        <input type="submit" value="">
+                    </form>
                 </div>
             </div>
-            <div class="body">
-                <div class="active" >
-                        <iframe src='http://www.israelweather.co.il/weather_out.asp?code_width=250&height=200&code_color=white&code_font_color=black' width=250 height=200 dir=rtl name='in_frame' frameborder='1' scrolling='No'></iframe>
-                        @RenderBody()
-                    </div>
+        </div>
+        <div class="body">
+            <div class="active">
+                <iframe src='http://www.israelweather.co.il/weather_out.asp?code_width=250&height=200&code_color=white&code_font_color=black' width=250 height=200 dir=rtl name='in_frame' frameborder='1' scrolling='No'></iframe>
+                @RenderBody()
+            </div>
             <div class="footer">
                 <div>
                     <div>
                         <ul>
                             <li class="selected">@Html.ActionLink("אודות", "Index", "Active")</li>
                             <li>@Html.ActionLink("צור קשר", "Index", "Evening")</li>
-                            <li>@Html.ActionLink("קישורים מעניינים", "Index", "EveningLesson")</li>
+                            <li>@Html.ActionLink("סניפים", "Index", "Location")</li>
                         </ul>
-                        <p>
-                            &#169; Copyright &#169; 2023.Company name all rights reserved
-                        </p>
-                        <div class="connect">
-                            <a href="http://freewebsitetemplates.com/go/facebook/" id="fb">facebook</a> <a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a> <a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a> <a href="http://freewebsitetemplates.com/go/youtube/" id="vimeo">vimeo</a>
-                        </div>
                     </div>
                 </div>
             </div>

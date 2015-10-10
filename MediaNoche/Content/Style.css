@@ -22,6 +22,11 @@
 	font-style: normal;
 }
 /*------------------------- Layout styles ------------------------*/
+.Extra 
+{
+    visibility:hidden;
+}
+
 body {
 	margin:0;
 	font-family: 'pt_serif_captionregular';
@@ -41,94 +46,6 @@ a img {
 	padding:0 0 14px 0;
 }
 /*------------------------- Header -------------------------*/
-.body .Active {
-	background:url(../Images/bg-mid.png) repeat-y scroll left top transparent;
-	padding:0 48px 0 0;
-}
-.body .Active ul {
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-.body .Active ul li {
-	margin:38px 0 0;
-	overflow:hidden;
-	padding:24px 0 0;
-}
-.body .Active ul li div:first-child {
-	background:url(../Images/bg-shadow3.png) no-repeat right bottom;
-	float:left;
-	height:auto;
-	padding:0 0 9px;
-	position:relative;
-	width:314px;
-}
-.body .Active ul li div:first-child a {
-	background:none;
-	display:block;
-	height:auto;
-	margin:0 0 0 38px;
-	width:276px;
-}
-.body .Active ul li div:first-child a:hover {
-	background:none;
-}
-.body .Active ul li div:first-child span {
-	background:url(../Images/clip-left.png) no-repeat scroll left top transparent;
-	display:block;
-	height:59px;
-	left:0;
-	position:absolute;
-	top:0;
-	width:65px;
-}
-.body .Active ul li div {
-	background:url(../Images/bg-shadow2.png) no-repeat right 42px;
-	float:right;
-	height:auto;
-	padding:0 0 16px 30px;
-	width:568px;
-}
-.body .Active ul li div div:first-child {
-	background:none #fff;
-	float:none;
-	height:42px;
-	padding:0;
-	width:568px;
-}
-.body .Active ul li div div h3 {
-	color:#0d314f;
-	float:left;
-	font-family: 'ralewaythin';
-	font-size:24px;
-	font-weight:400;
-	line-height:24px;
-	margin:8px 0 0 10px;
-}
-.body .Active ul li div div div {
-	background:none;
-	float:right;
-	height:auto;
-	padding:9px 20px 0 0;
-	width:auto;
-}
-.body .Active ul li div div div span:first-child {
-	background:none;
-	color:#9da3a8;
-	display:block;
-	font-family: 'ralewaythin';
-	font-size:12px;
-	height:auto;
-	line-height:24px;
-	position:static;
-	width:auto;
-}
-.body .Active ul li div p {
-	color:#416277;
-	font-size:12px;
-	line-height:24px;
-	margin:13px 0 24px;
-}
 .header {
 	height:131px;
 	overflow:hidden;
@@ -257,62 +174,27 @@ a img {
 	background:url(../Images/bg-top.png) no-repeat left top;
 	padding:19px 0 0;
 }
-.body .default {
-	background:url(../Images/bg-mid.png) repeat-y left top;
-	overflow:hidden;
-}
-.body .default div.section {
-	background:url(../Images/border.png) repeat-x left bottom;
-	margin:0 47px;
-	overflow:hidden;
-	padding:0 0 23px;
-}
-.body .default div.section div:first-child {
-	background:none;
-	float:left;
-	margin:0 36px 0 0;
-	width:576px;
-}
-.body .default div.section div:first-child h2 {
-	color:#bac3cb;
-	font-family: 'pt_serif_captionitalic';
-	font-size:30px;
-	font-weight:400;
-	margin:17px 0 0;
-	text-shadow:0 1px 0 #fdfbfb;
-}
-
-.body .default div.section div {
-	background:url(../Images/bg-shadow3.png) no-repeat right bottom;
-	float:left;
-	margin:0;
-	padding:0 0 9px;
-	width:auto;
-}
-.body .default div {
+.body .active{
     color:#3b536c;
-	background:none;
-	margin:28px 47px 0;
-	padding:0 0 36px;
-}
-
-
-
-.body .active {
 	background:url(../images/bg-mid.png) repeat-y scroll left top transparent;
-	padding:0 48px 0 0;
+	padding:0 48px 0px 0px;
 }
-.body .active ul {
+
+
+.body .active aside   {
+	padding:0 0px 0 0;
+}
+.body .active aside   ul {
 	list-style:none;
 	margin:0;
 	padding:0;
 }
-.body .active ul li {
+.body .active aside   ul li {
 	margin:38px 0 0;
 	overflow:hidden;
 	padding:24px 0 0;
 }
-.body .active ul li div:first-child {
+.body .active aside   ul li div:first-child {
 	background:url(../images/bg-shadow3.png) no-repeat right bottom;
 	float:left;
 	height:auto;
@@ -320,17 +202,17 @@ a img {
 	position:relative;
 	width:314px;
 }
-.body .active ul li div:first-child a {
+.body .active aside   ul li div:first-child a {
 	background:none;
 	display:block;
 	height:auto;
 	margin:0 0 0 38px;
 	width:276px;
 }
-.body .active ul li div:first-child a:hover {
+.body .active aside   ul li div:first-child a:hover {
 	background:none;
 }
-.body .active ul li div:first-child span {
+.body .active aside   ul li div:first-child span {
 	background:url(../images/clip-left.png) no-repeat scroll left top transparent;
 	display:block;
 	height:59px;
@@ -339,21 +221,21 @@ a img {
 	top:0;
 	width:65px;
 }
-.body .active ul li div {
+.body .active aside   ul li div {
 	background:url(../images/bg-shadow2.png) no-repeat right 42px;
 	float:right;
 	height:auto;
 	padding:0 0 16px 30px;
 	width:568px;
 }
-.body .active ul li div div:first-child {
+.body .active aside   ul li div div:first-child {
 	background:none #fff;
 	float:none;
 	height:42px;
 	padding:0;
 	width:568px;
 }
-.body .active ul li div div h3 {
+.body .active aside   ul li div div h3 {
 	color:#0d314f;
 	float:left;
 	font-family: 'ralewaythin';
@@ -362,14 +244,14 @@ a img {
 	line-height:24px;
 	margin:8px 0 0 10px;
 }
-.body .active ul li div div div {
+.body .active aside   ul li div div div {
 	background:none;
 	float:right;
 	height:auto;
 	padding:9px 20px 0 0;
 	width:auto;
 }
-.body .active ul li div div div span:first-child {
+.body .active aside   ul li div div div span:first-child {
 	background:none;
 	color:#9da3a8;
 	display:block;
@@ -380,13 +262,13 @@ a img {
 	position:static;
 	width:auto;
 }
-.body .active ul li div p {
+.body .active aside   ul li div p {
 	color:#416277;
 	font-size:12px;
 	line-height:24px;
 	margin:13px 0 24px;
 }
-.body .active ul li div p a {
+.body .active aside   ul li div p a {
 	background:none;
 	color:#A98B52;
 	display:inline;
@@ -408,9 +290,10 @@ a img {
 	background:none #fff;
 	height:47px;
 	padding:0;
+    align-items:center;
 }
 .footer div div ul {
-	float:left;
+	float:right;
 	list-style:none;
 	margin:10px 135px 0 35px;
 	overflow:hidden;
@@ -426,60 +309,6 @@ a img {
 	float:left;
 	padding:0 8px;
 }
-.footer div div ul li a {
-	color:#246ea5;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size:12px;
-	text-decoration:none;
-}
-.footer div div ul li a:hover {
-	text-decoration:none;
-}
-.footer div div p {
-	color:#a9b1b9;
-	float:left;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size:10px;
-	line-height:16px;
-	margin:15px 0 0;
-}
-.footer div div div.connect {
-	float:left;
-	height:auto;
-	margin:13px 0 0 65px;
-	overflow:hidden;
-}
-.footer div div div.connect a#twitter {
-	background:url(../Images/icons.png) no-repeat;
-	display:block;
-	float:left;
-	height:18px;
-	text-indent:-99999px;
-	width:23px;
-}
-.footer div div div.connect a#fb {
-	background:url(../Images/icons.png) no-repeat 0 -19px;
-	display:block;
-	float:left;
-	height:19px;
-	margin:0 37px 0 44px;
-	text-indent:-99999px;
-	width:19px;
-}
-.footer div div div.connect a#googleplus {
-	background:url(../Images/icons.png) no-repeat 0 -59px;
-	display:block;
-	float:left;
-	height:19px;
-	margin:0 37px 0 44px;
-	text-indent:-99999px;
-	width:19px;
-}
-.footer div div div.connect a#vimeo {
-	background:url(../Images/icons.png) no-repeat 0 -39px;
-	display:block;
-	float:left;
-	height:19px;
-	text-indent:-99999px;
-	width:22px;
-}
+
+
+

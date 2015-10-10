@@ -2,38 +2,41 @@
 @{
     ViewBag.Title = "Index";
 }
+<aside>
+    <h2>Index</h2>
+    <div class="Extra"  style="display:inline-block">
+        <p>
+            @Html.ActionLink("הוסף מדריך", "Create")
+        </p>
+    </div>
+    <ul>
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<ul>
-
-    @foreach (var item in Model)
-    {
-        <li>
-            <div>
-                <a href="#"><img src=@Html.DisplayFor(modelItem => item.Picture) alt="" style="width:267px;height:267px;"></a> <span></span>
-            </div>
-            <div>
+        @foreach (var item in Model)
+        {
+            <li>
                 <div>
-                    <h3>@Html.DisplayFor(modelItem => item.FirsName) @Html.DisplayFor(modelItem => item.LastName)</h3>
+                    <a href="#"><img src=@Html.DisplayFor(modelItem => item.Picture) alt="" style="width:267px;height:267px;"></a> <span></span>
+                </div>
+                <div>
                     <div>
-                        <span>
-                            @Html.DisplayNameFor(model => model.Birthday): @Html.DisplayFor(modelItem => item.Birthday)
-                            @Html.DisplayNameFor(model => model.Availability): @Html.DisplayFor(modelItem => item.Availability)
-                        </span>
+                        <h3>@Html.DisplayFor(modelItem => item.FirsName) @Html.DisplayFor(modelItem => item.LastName)</h3>
+                        <div>
+                            <span>
+                                @Html.DisplayNameFor(model => model.Birthday): @Html.DisplayFor(modelItem => item.Birthday)
+                                @Html.DisplayNameFor(model => model.Availability): @Html.DisplayFor(modelItem => item.Availability)
+                            </span>
+                        </div>
+                    </div>
+                    <p>
+                        @Html.DisplayNameFor(model => model.Summary)
+                    </p>
+                    <a> @Html.ActionLink("פרטים", "Details", new { id = item.ID }) |</a>
+                    <div class="Extra"  style="display:inline-block">
+                    <a>@Html.ActionLink("ערוך", "Edit", new { id = item.ID }) |</a>
+                    <a>@Html.ActionLink("מחק", "Delete", new { id = item.ID })</a>
                     </div>
                 </div>
-                <p>
-                    @Html.DisplayNameFor(model => model.Summary)
-                </p>
-                <a>@Html.ActionLink("ערוך", "Edit", new { id = item.ID }) |</a>
-                <a> @Html.ActionLink("פרטים", "Details", new { id = item.ID }) |</a>
-                <a>@Html.ActionLink("מחק", "Delete", new { id = item.ID })</a>
-            </div>
-        </li>
-    }
-</ul>
+            </li>
+        }
+    </ul>
+</aside>

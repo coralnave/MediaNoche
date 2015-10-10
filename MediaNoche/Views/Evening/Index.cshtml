@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<MediaNoche.Models.Evening>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "הצגה";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>הצגה</h2>
+<div class="Extra" style="display:inline-block">
+    <p>
+        @Html.ActionLink("הוסף ערב", "Create")
+    </p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -36,7 +37,7 @@
         </td>
         <td>
             @Html.ActionLink("פרטים", "Details", new { id = item.ID })
-            <div id="Extra" style="display:inline-block">
+            <div class="Extra" style="display:inline-block">
                 |
                 @Html.ActionLink("עריכה", "Edit", new { id = item.ID })|
                 @Html.ActionLink("מחק", "Delete", new { id = item.ID })
@@ -46,12 +47,3 @@
     </tr>
 }
 </table>
-
-<script type="text/javascript">
-    if ('@ViewBag.Name' == 'ok') {
-        document.getElementById('Extra').style.visibility = "visible";
-    }
-    else {
-        document.getElementById('Extra').style.visibility = "hidden";
-    }
-</script>

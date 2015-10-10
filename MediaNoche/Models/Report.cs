@@ -21,6 +21,7 @@ namespace MediaNoche.Models
 
         [DisplayName("חדשות לתאריך:")]
         [Required]
+        [DataType(DataType.Date)]
         public DateTime UpdateForDate { get; set; }
     }
 }
