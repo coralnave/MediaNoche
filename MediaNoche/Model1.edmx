@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MediaNocheContextModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Active">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirsName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" Nullable="false" />
+          <Property Name="Availability" Type="bit" Nullable="false" />
+          <Property Name="Picture" Type="nvarchar(max)" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EveningLesson_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Evening">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EveningLessonID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Concept" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Announcer_ID" Type="int" />
+          <Property Name="DJ_ID" Type="int" />
+          <Property Name="EveningManager_ID" Type="int" />
+          <Property Name="EveningManagerAssistant_ID" Type="int" />
+          <Property Name="IntroductoryRateGuide_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EveningLesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActiveID" Type="int" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="LessonNum" Type="int" Nullable="false" />
+          <Property Name="Evening_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Excersize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Video" Type="nvarchar(max)" />
+          <Property Name="EveningLesson_ID" Type="int" />
+          <Property Name="Lesson_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="LessonNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShortInfo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Addres" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ShortInfo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UpdateForDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID">
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="0..1" />
+          <End Role="Active" Type="Self.Active" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EveningLesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Active">
+              <PropertyRef Name="EveningLesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_Announcer_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="Announcer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_DJ_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="DJ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_EveningManager_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="EveningManager_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="EveningManagerAssistant_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="IntroductoryRateGuide_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_EveningLesson_dbo_Evening_Evening_ID">
+          <End Role="Evening" Type="Self.Evening" Multiplicity="0..1" />
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evening">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EveningLesson">
+              <PropertyRef Name="Evening_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID">
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="0..1" />
+          <End Role="Excersize" Type="Self.Excersize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EveningLesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excersize">
+              <PropertyRef Name="EveningLesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Excersize_dbo_Lesson_Lesson_ID">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <End Role="Excersize" Type="Self.Excersize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excersize">
+              <PropertyRef Name="Lesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MediaNocheContextModelStoreContainer">
+          <EntitySet Name="Active" EntityType="Self.Active" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evening" EntityType="Self.Evening" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EveningLesson" EntityType="Self.EveningLesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Excersize" EntityType="Self.Excersize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID" Association="Self.FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID">
+            <End Role="EveningLesson" EntitySet="EveningLesson" />
+            <End Role="Active" EntitySet="Active" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_Announcer_ID" Association="Self.FK_dbo_Evening_dbo_Active_Announcer_ID">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Evening" EntitySet="Evening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_DJ_ID" Association="Self.FK_dbo_Evening_dbo_Active_DJ_ID">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Evening" EntitySet="Evening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_EveningManager_ID" Association="Self.FK_dbo_Evening_dbo_Active_EveningManager_ID">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Evening" EntitySet="Evening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID" Association="Self.FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Evening" EntitySet="Evening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID" Association="Self.FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID">
+            <End Role="Active" EntitySet="Active" />
+            <End Role="Evening" EntitySet="Evening" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_EveningLesson_dbo_Evening_Evening_ID" Association="Self.FK_dbo_EveningLesson_dbo_Evening_Evening_ID">
+            <End Role="Evening" EntitySet="Evening" />
+            <End Role="EveningLesson" EntitySet="EveningLesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID" Association="Self.FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID">
+            <End Role="EveningLesson" EntitySet="EveningLesson" />
+            <End Role="Excersize" EntitySet="Excersize" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Excersize_dbo_Lesson_Lesson_ID" Association="Self.FK_dbo_Excersize_dbo_Lesson_Lesson_ID">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Excersize" EntitySet="Excersize" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MediaNocheContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Active">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirsName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Availability" Type="Boolean" Nullable="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EveningLesson_ID" Type="Int32" />
+          <NavigationProperty Name="EveningLesson" Relationship="Self.FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID" FromRole="Active" ToRole="EveningLesson" />
+          <NavigationProperty Name="Evenings" Relationship="Self.FK_dbo_Evening_dbo_Active_Announcer_ID" FromRole="Active" ToRole="Evening" />
+          <NavigationProperty Name="Evenings1" Relationship="Self.FK_dbo_Evening_dbo_Active_DJ_ID" FromRole="Active" ToRole="Evening" />
+          <NavigationProperty Name="Evenings2" Relationship="Self.FK_dbo_Evening_dbo_Active_EveningManager_ID" FromRole="Active" ToRole="Evening" />
+          <NavigationProperty Name="Evenings3" Relationship="Self.FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID" FromRole="Active" ToRole="Evening" />
+          <NavigationProperty Name="Evenings4" Relationship="Self.FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID" FromRole="Active" ToRole="Evening" />
+        </EntityType>
+        <EntityType Name="Evening">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EveningLessonID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Concept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Announcer_ID" Type="Int32" />
+          <Property Name="DJ_ID" Type="Int32" />
+          <Property Name="EveningManager_ID" Type="Int32" />
+          <Property Name="EveningManagerAssistant_ID" Type="Int32" />
+          <Property Name="IntroductoryRateGuide_ID" Type="Int32" />
+          <NavigationProperty Name="Active" Relationship="Self.FK_dbo_Evening_dbo_Active_Announcer_ID" FromRole="Evening" ToRole="Active" />
+          <NavigationProperty Name="Active1" Relationship="Self.FK_dbo_Evening_dbo_Active_DJ_ID" FromRole="Evening" ToRole="Active" />
+          <NavigationProperty Name="Active2" Relationship="Self.FK_dbo_Evening_dbo_Active_EveningManager_ID" FromRole="Evening" ToRole="Active" />
+          <NavigationProperty Name="Active3" Relationship="Self.FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID" FromRole="Evening" ToRole="Active" />
+          <NavigationProperty Name="Active4" Relationship="Self.FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID" FromRole="Evening" ToRole="Active" />
+          <NavigationProperty Name="EveningLessons" Relationship="Self.FK_dbo_EveningLesson_dbo_Evening_Evening_ID" FromRole="Evening" ToRole="EveningLesson" />
+        </EntityType>
+        <EntityType Name="EveningLesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActiveID" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="LessonNum" Type="Int32" Nullable="false" />
+          <Property Name="Evening_ID" Type="Int32" />
+          <NavigationProperty Name="Actives" Relationship="Self.FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID" FromRole="EveningLesson" ToRole="Active" />
+          <NavigationProperty Name="Evening" Relationship="Self.FK_dbo_EveningLesson_dbo_Evening_Evening_ID" FromRole="EveningLesson" ToRole="Evening" />
+          <NavigationProperty Name="Excersizes" Relationship="Self.FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID" FromRole="EveningLesson" ToRole="Excersize" />
+        </EntityType>
+        <EntityType Name="Excersize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EveningLesson_ID" Type="Int32" />
+          <Property Name="Lesson_ID" Type="Int32" />
+          <NavigationProperty Name="EveningLesson" Relationship="Self.FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID" FromRole="Excersize" ToRole="EveningLesson" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_dbo_Excersize_dbo_Lesson_Lesson_ID" FromRole="Excersize" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="LessonNum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Excersizes" Relationship="Self.FK_dbo_Excersize_dbo_Lesson_Lesson_ID" FromRole="Lesson" ToRole="Excersize" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Addres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UpdateForDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID">
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="0..1" />
+          <End Role="Active" Type="Self.Active" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EveningLesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Active">
+              <PropertyRef Name="EveningLesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_Announcer_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="Announcer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_DJ_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="DJ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_EveningManager_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="EveningManager_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="EveningManagerAssistant_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID">
+          <End Role="Active" Type="Self.Active" Multiplicity="0..1" />
+          <End Role="Evening" Type="Self.Evening" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Active">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Evening">
+              <PropertyRef Name="IntroductoryRateGuide_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_EveningLesson_dbo_Evening_Evening_ID">
+          <End Role="Evening" Type="Self.Evening" Multiplicity="0..1" />
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evening">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EveningLesson">
+              <PropertyRef Name="Evening_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID">
+          <End Role="EveningLesson" Type="Self.EveningLesson" Multiplicity="0..1" />
+          <End Role="Excersize" Type="Self.Excersize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EveningLesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excersize">
+              <PropertyRef Name="EveningLesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Excersize_dbo_Lesson_Lesson_ID">
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <End Role="Excersize" Type="Self.Excersize" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Excersize">
+              <PropertyRef Name="Lesson_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MediaNocheContextEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actives" EntityType="Self.Active" />
+          <EntitySet Name="Evenings" EntityType="Self.Evening" />
+          <EntitySet Name="EveningLessons" EntityType="Self.EveningLesson" />
+          <EntitySet Name="Excersizes" EntityType="Self.Excersize" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <AssociationSet Name="FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID" Association="Self.FK_dbo_Active_dbo_EveningLesson_EveningLesson_ID">
+            <End Role="EveningLesson" EntitySet="EveningLessons" />
+            <End Role="Active" EntitySet="Actives" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_Announcer_ID" Association="Self.FK_dbo_Evening_dbo_Active_Announcer_ID">
+            <End Role="Active" EntitySet="Actives" />
+            <End Role="Evening" EntitySet="Evenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_DJ_ID" Association="Self.FK_dbo_Evening_dbo_Active_DJ_ID">
+            <End Role="Active" EntitySet="Actives" />
+            <End Role="Evening" EntitySet="Evenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_EveningManager_ID" Association="Self.FK_dbo_Evening_dbo_Active_EveningManager_ID">
+            <End Role="Active" EntitySet="Actives" />
+            <End Role="Evening" EntitySet="Evenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID" Association="Self.FK_dbo_Evening_dbo_Active_EveningManagerAssistant_ID">
+            <End Role="Active" EntitySet="Actives" />
+            <End Role="Evening" EntitySet="Evenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID" Association="Self.FK_dbo_Evening_dbo_Active_IntroductoryRateGuide_ID">
+            <End Role="Active" EntitySet="Actives" />
+            <End Role="Evening" EntitySet="Evenings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_EveningLesson_dbo_Evening_Evening_ID" Association="Self.FK_dbo_EveningLesson_dbo_Evening_Evening_ID">
+            <End Role="Evening" EntitySet="Evenings" />
+            <End Role="EveningLesson" EntitySet="EveningLessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID" Association="Self.FK_dbo_Excersize_dbo_EveningLesson_EveningLesson_ID">
+            <End Role="EveningLesson" EntitySet="EveningLessons" />
+            <End Role="Excersize" EntitySet="Excersizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Excersize_dbo_Lesson_Lesson_ID" Association="Self.FK_dbo_Excersize_dbo_Lesson_Lesson_ID">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="Excersize" EntitySet="Excersizes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MediaNocheContextModelStoreContainer" CdmEntityContainer="MediaNocheContextEntities">
+          <EntitySetMapping Name="Actives">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Active">
+              <MappingFragment StoreEntitySet="Active">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirsName" ColumnName="FirsName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="EveningLesson_ID" ColumnName="EveningLesson_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evenings">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Evening">
+              <MappingFragment StoreEntitySet="Evening">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EveningLessonID" ColumnName="EveningLessonID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="Announcer_ID" ColumnName="Announcer_ID" />
+                <ScalarProperty Name="DJ_ID" ColumnName="DJ_ID" />
+                <ScalarProperty Name="EveningManager_ID" ColumnName="EveningManager_ID" />
+                <ScalarProperty Name="EveningManagerAssistant_ID" ColumnName="EveningManagerAssistant_ID" />
+                <ScalarProperty Name="IntroductoryRateGuide_ID" ColumnName="IntroductoryRateGuide_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EveningLessons">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.EveningLesson">
+              <MappingFragment StoreEntitySet="EveningLesson">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActiveID" ColumnName="ActiveID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="LessonNum" ColumnName="LessonNum" />
+                <ScalarProperty Name="Evening_ID" ColumnName="Evening_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Excersizes">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Excersize">
+              <MappingFragment StoreEntitySet="Excersize">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="EveningLesson_ID" ColumnName="EveningLesson_ID" />
+                <ScalarProperty Name="Lesson_ID" ColumnName="Lesson_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="LessonNum" ColumnName="LessonNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ShortInfo" ColumnName="ShortInfo" />
+                <ScalarProperty Name="Addres" ColumnName="Addres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="MediaNocheContextModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ShortInfo" ColumnName="ShortInfo" />
+                <ScalarProperty Name="UpdateForDate" ColumnName="UpdateForDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
